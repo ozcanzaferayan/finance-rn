@@ -1,7 +1,7 @@
 import { useUsers } from '@/src/hooks/useUsers';
-import { Link } from 'expo-router';
+import { router } from 'expo-router';
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { Button, FlatList, View } from 'react-native';
 
 const Index = () => {
   const { data: users } = useUsers();
@@ -11,7 +11,10 @@ const Index = () => {
       <FlatList
         data={users}
         keyExtractor={(user) => user.id.toString()}
-        renderItem={({ item }) => <Link href={`/users/${item.id}`}>{item.name}</Link>}
+        renderItem={({ item }) => (
+          <Button title={item.name} 
+          onPress={() => router.push(`/users/${item.id}`)} />
+        )}
       />
     </View>
   );
