@@ -9,7 +9,10 @@
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\" && prettier -c \"**/*.{js,jsx,ts,tsx,json}\"",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "web": "expo start --web",
-    "start": "concurrently 'expo start' 'json-server db.json'"
+    "start:dev": "NODE_ENV=development concurrently 'expo start' 'json-server db.json'",
+    "start:test": "NODE_ENV=test concurrently 'expo start' 'json-server db.json'",
+    "start:prod": "concurrently 'NODE_ENV=production expo start' 'json-server db.json'",
+    "ship:ios": "bunx eas build --platform ios --local --output ./build.ipa && bunx eas submit --platform ios --path ./build.ipa"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
