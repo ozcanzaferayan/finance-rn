@@ -1,9 +1,18 @@
-import { useEvent } from 'expo';
-import DefinexAppleWallet, { DefinexAppleWalletView } from 'definex-apple-wallet';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import DefinexAppleWallet, {
+  DefinexAppleWalletView,
+} from "definex-apple-wallet";
+import { useEvent } from "expo";
+import {
+  Button,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from "react-native";
 
 export default function App() {
-  const onChangePayload = useEvent(DefinexAppleWallet, 'onChange');
+  const onChangePayload = useEvent(DefinexAppleWallet, "onChange");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,7 +28,7 @@ export default function App() {
           <Button
             title="Set value"
             onPress={async () => {
-              await DefinexAppleWallet.setValueAsync('Hello from JS!');
+              await DefinexAppleWallet.setValueAsync("Hello from JS!");
             }}
           />
         </Group>
@@ -27,11 +36,23 @@ export default function App() {
           <Text>{onChangePayload?.value}</Text>
         </Group>
         <Group name="Views">
-          <DefinexAppleWalletView
-            url="https://www.example.com"
-            onLoad={({ nativeEvent: { url } }) => console.log(`Loaded: ${url}`)}
-            style={styles.view}
-          />
+          {Platform.OS === "ios" ? (
+            <DefinexAppleWalletView
+              url="https://www.example.com"
+              onLoad={({ nativeEvent: { url } }) =>
+                console.log(`Loaded: ${url}`)
+              }
+              style={styles.view}
+            />
+          ) : (
+            <DefinexAppleWalletView
+              url="https://www.example.com"
+              onLoad={({ nativeEvent: { url } }) =>
+                console.log(`Loaded: ${url}`)
+              }
+              style={styles.view}
+            />
+          )}
         </Group>
       </ScrollView>
     </SafeAreaView>
@@ -58,13 +79,13 @@ const styles = {
   },
   group: {
     margin: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
   },
   container: {
     flex: 1,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
   },
   view: {
     flex: 1,
