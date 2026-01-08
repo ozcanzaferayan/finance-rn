@@ -3,7 +3,6 @@
     "name": "hello-rtk",
     "slug": "hello-rtk",
     "version": "1.0.0",
-
     "scheme": "hello-rtk",
     "platforms": ["ios", "android"],
     "web": {
@@ -14,29 +13,27 @@
     "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true,
-
       "tsconfigPaths": true
     },
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/icon.png",
-      "resizeMode": "center",
+      "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zaferayan.hellortk"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.zaferayan.hellortk"
     }
   }
 }
