@@ -1,20 +1,12 @@
-import { useUsers } from '@/src/hooks/useUsers';
-import { Link } from 'expo-router';
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { Text, View } from 'react-native';
 
-const Index = () => {
-  const { data: users } = useUsers();
-
+const index = () => {
   return (
     <View>
-      <FlatList
-        data={users}
-        keyExtractor={(user) => user.id.toString()}
-        renderItem={({ item }) => <Link href={`/users/${item.id}`}>{item.name}</Link>}
-      />
+      <Text>index</Text>
     </View>
   );
 };
 
-export default Index;
+export default index;
