@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["DefinexAppleWalletModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.definexapplewallet.DefinexAppleWalletModule"]
+  }
+}

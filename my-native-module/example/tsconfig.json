@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "paths": {
+      "definex-apple-wallet": ["../src/index"],
+      "definex-apple-wallet/*": ["../src/*"]
+    }
+  }
+}
