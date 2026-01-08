@@ -8,7 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const CardTab = () => {
   const { bottom } = useSafeAreaInsets();
   return (
-    <View className="flex-1 justify-between p-4" style={{ marginBottom: bottom }}>
+    <View className="flex-1 justify-between p-4" style={{ paddingBottom: bottom }}>
       <View>
         {/* Blue Card */}
         <TouchableOpacity onPress={() => router.push('/cards/3')}>
